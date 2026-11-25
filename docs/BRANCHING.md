@@ -46,7 +46,7 @@ git checkout -b hotfix/<issue>
 
 ## 3. GitHub 建库后必做的 3 个设置
 
-仓库：`zhooxc/dsh-skills`，默认分支 `main`。
+仓库：`zhooxc/my_agent-skills`，默认分支 `main`。
 
 1. **默认分支**：Settings → General → Default branch → `main`。
 2. **分支保护 `main`**：Settings → Branches → Add rule → Branch name pattern `main`：

@@ -1,4 +1,4 @@
-# dsh-skills
+# my_agent-skills
 
 DeepSeek Harness（DSH）个人 Skill 仓库：存放可在多设备、多会话复用的 Skill。
 每个 Skill 即一个目录（含 `SKILL.md`），遵循 DSH 本地 Skill 规范（kebab-case 目录名）。
@@ -6,7 +6,7 @@ DeepSeek Harness（DSH）个人 Skill 仓库：存放可在多设备、多会话
 ## 目录
 
 ```text
-dsh-skills/
+my_agent-skills/
   skills/
     obsidian-vault-save/   # 当前回答总结成 md，按库规约存入 Windows Obsidian 仓库
     win-omnicom/           # 经 WinLinuxBridge 操作 Windows 串口工作台 OmniCOM
