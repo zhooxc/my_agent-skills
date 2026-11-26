@@ -18,7 +18,7 @@ my_agent-skills/
 
 | Skill | 用途 | 来源 |
 | --- | --- | --- |
-| `obsidian-vault-save` | 把当前回答提炼成 md，经 `wl` 中转存入 `D:\Ian.ZHAO\Documents\Quectel_MCU`，按模组/客户/流程归属、命名、标签、索引规则落地 | 本仓库 `skills/obsidian-vault-save/SKILL.md` |
+| `obsidian-vault-save` | 把当前回答提炼成 md 存入 `D:\Ian.ZHAO\Documents\Quectel_MCU`，按模组/客户/流程归属、命名、标签、索引规则落地；Linux 经 `wlt` 桥中转，Windows 原生直写 | 本仓库 `skills/obsidian-vault-save/SKILL.md` |
 | `win-omnicom` | 在 Linux 侧经 WinLinuxBridge 操作 OmniCOM：发现端口/窗口、收发/monitor/session、传文件、DTR/RTS、GUI 兜底 | 本仓库 `skills/win-omnicom/SKILL.md` |
 
 ## 安装（取用）
