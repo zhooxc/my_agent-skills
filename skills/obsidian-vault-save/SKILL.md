@@ -197,8 +197,8 @@ EOF
 "$WLT" put /tmp/obsidian-save/"<文件名>.md" shared/to_win/"<文件名>.md"
 
 # 3) Windows 侧移到 vault（示例目标为 FCM962K；按第 2 章替换目录）
-#    不要硬编码共享目录：按候选逐个 Test-Path，找到真实 $src
-PS '[Console]::OutputEncoding=[Text.Encoding]::UTF8; $cands=@("$env:USERPROFILE\.wlt\shared\to_win\<文件名>.md", "D:\Fatmear\WinLinuxBridge\shared\to_win\<文件名>.md"); $src=$cands | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1; $dst="D:\Ian.ZHAO\Documents\Quectel_MCU\20-模组\FCM962K\<文件名>.md"; if(-not $src){ Write-Output "SHARED_NOT_FOUND"; exit 1 }; Move-Item -LiteralPath $src -Destination $dst -Force; Test-Path -LiteralPath $dst'
+#    共享目录固定为 $env:USERPROFILE\.wlt\shared\to_win\；目标已存在则拒绝，绝不覆盖
+PS '[Console]::OutputEncoding=[Text.Encoding]::UTF8; $src="$env:USERPROFILE\.wlt\shared\to_win\<文件名>.md"; $dst="D:\Ian.ZHAO\Documents\Quectel_MCU\20-模组\FCM962K\<文件名>.md"; if(-not (Test-Path -LiteralPath $src)){ Write-Output "SHARED_NOT_FOUND"; exit 1 }; if(-not (Test-Path -LiteralPath (Split-Path -Parent $dst) -PathType Container)){ Write-Output "TARGET_DIR_MISSING"; exit 1 }; if(Test-Path -LiteralPath $dst){ Write-Output "TARGET_EXISTS"; exit 1 }; Move-Item -LiteralPath $src -Destination $dst -ErrorAction Stop; Test-Path -LiteralPath $dst'
 ```
 
 - `shared/to_win` 是受限共享目录（本机 Windows 侧实为 `%USERPROFILE%\.wlt\shared\to_win\`，以 `wlt put` 成功回显为准）；不要试图 `wlt put` 直写 D 盘 vault（403 越界）。
